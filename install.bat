@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 >nul
 REM AI 瑜珈教練系統 - 安裝腳本
 REM 此腳本將安裝所有必要的依賴
 

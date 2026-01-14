@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 >nul
 REM AI 瑜珈教練系統 - 驗證腳本
 REM 此腳本將驗證系統是否正常運作
 

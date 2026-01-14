@@ -1,4 +1,6 @@
+
 @echo off
+chcp 65001 >nul
 REM AI 瑜珈教練系統 - 啟動腳本
 REM 此腳本將同時啟動後端與前端服務
 

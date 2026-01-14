@@ -5,3 +5,5 @@
 2026-01-14 17:27:26,342 - main - INFO - AI 瑜珈教練系統 API 已啟動
 2026-01-14 17:27:26,354 - database - INFO - 資料庫連接成功：yoga_coach
 2026-01-14 17:27:26,354 - main - INFO - 資料庫連接成功
+2026-01-14 17:36:52,532 - database - INFO - 取得使用者 default_user 的 0 筆歷史記錄
+2026-01-14 17:36:52,538 - database - INFO - 取得使用者 default_user 的 0 筆歷史記錄
