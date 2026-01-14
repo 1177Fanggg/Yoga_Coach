@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+opencv-python
+mediapipe
+numpy
+pyttsx3
+psutil
+pytest
+pymongo
+python-multipart
+websockets
+python-dotenv
