@@ -20,7 +20,7 @@ from config import (
     API_HOST, API_PORT, CORS_ORIGINS, DEFAULT_USER_ID,
     VIDEO_SESSIONS_DIR, VIDEO_SEGMENTS_DIR, AUDIO_DIR, LOG_FILE, LOG_LEVEL
 )
-from pose_analyzer import analyze_pose, PoseAnalyzer
+from pose_analyzer import analyze_pose
 from video_processor import VideoProcessor
 from database import get_database
 from tts_service import get_tts_service

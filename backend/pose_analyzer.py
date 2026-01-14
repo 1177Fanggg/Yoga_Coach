@@ -4,12 +4,15 @@ AI 瑜珈教練系統 - 姿勢分析模組
 """
 
 import math
+import cv2
 import numpy as np
 from typing import List, Dict, Tuple, Optional
-import mediapipe as mp
+# import mediapipe as mp
 
 # MediaPipe Pose 解決方案
-mp_pose = mp.solutions.pose
+# 注意：MediaPipe 0.10.31+ API 已更改，solutions 已移除
+# 本模組主要接收已處理的 landmarks，不直接使用 MediaPipe
+# mp_pose = mp.solutions.pose
 
 # Landmark 索引常數（基於 MediaPipe Pose 的 33 個關鍵點）
 class PoseLandmark:
@@ -439,56 +442,59 @@ def analyze_pose(landmarks: List[Dict], pose_hint: Optional[str] = None) -> Dict
     return best_result
 
 
-# MediaPipe Pose 初始化類別
-class PoseAnalyzer:
-    """姿勢分析器類別，封裝 MediaPipe Pose"""
-    
-    def __init__(self, min_detection_confidence=0.5, min_tracking_confidence=0.5):
-        """
-        初始化姿勢分析器
-        
-        Args:
-            min_detection_confidence: 最小偵測信心度
-            min_tracking_confidence: 最小追蹤信心度
-        """
-        self.pose = mp_pose.Pose(
-            min_detection_confidence=min_detection_confidence,
-            min_tracking_confidence=min_tracking_confidence
-        )
-    
-    def process_frame(self, frame):
-        """
-        處理單一影格，提取姿勢關鍵點
-        
-        Args:
-            frame: OpenCV 影格 (BGR)
-        
-        Returns:
-            List[Dict]: 33 個 landmark 或 None
-        """
-        # 轉換為 RGB（MediaPipe 使用 RGB）
-        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        
-        # 處理影像
-        results = self.pose.process(frame_rgb)
-        
-        # 提取 landmarks
-        if results.pose_landmarks:
-            landmarks = []
-            for lm in results.pose_landmarks.landmark:
-                landmarks.append({
-                    'x': lm.x,
-                    'y': lm.y,
-                    'z': lm.z,
-                    'visibility': lm.visibility
-                })
-            return landmarks
-        
-        return None
-    
-    def close(self):
-        """關閉姿勢分析器"""
-        self.pose.close()
+# 注意：以下 PoseAnalyzer 類別使用舊版 MediaPipe API
+# 在新版本中，建議前端使用 MediaPipe 並將 landmarks 傳送給後端分析
+# 如需在後端直接使用相機，請使用新版 MediaPipe API
+
+# class PoseAnalyzer:
+#     """姿勢分析器類別，封裝 MediaPipe Pose"""
+#     
+#     def __init__(self, min_detection_confidence=0.5, min_tracking_confidence=0.5):
+#         """
+#         初始化姿勢分析器
+#         
+#         Args:
+#             min_detection_confidence: 最小偵測信心度
+#             min_tracking_confidence: 最小追蹤信心度
+#         """
+#         self.pose = mp_pose.Pose(
+#             min_detection_confidence=min_detection_confidence,
+#             min_tracking_confidence=min_tracking_confidence
+#         )
+#     
+#     def process_frame(self, frame):
+#         """
+#         處理單一影格，提取姿勢關鍵點
+#         
+#         Args:
+#             frame: OpenCV 影格 (BGR)
+#         
+#         Returns:
+#             List[Dict]: 33 個 landmark 或 None
+#         """
+#         # 轉換為 RGB（MediaPipe 使用 RGB）
+#         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+#         
+#         # 處理影像
+#         results = self.pose.process(frame_rgb)
+#         
+#         # 提取 landmarks
+#         if results.pose_landmarks:
+#             landmarks = []
+#             for lm in results.pose_landmarks.landmark:
+#                 landmarks.append({
+#                     'x': lm.x,
+#                     'y': lm.y,
+#                     'z': lm.z,
+#                     'visibility': lm.visibility
+#                 })
+#             return landmarks
+#         
+#         return None
+#     
+#     def close(self):
+#         """關閉姿勢分析器"""
+#         self.pose.close()
 
 
 if __name__ == "__main__":
