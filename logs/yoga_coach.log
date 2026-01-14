@@ -2,3 +2,6 @@
 2026-01-14 17:10:13,165 - watchfiles.main - INFO - 4 changes detected
 2026-01-14 17:10:13,171 - database - INFO - 資料庫連接成功：yoga_coach
 2026-01-14 17:10:13,171 - main - INFO - 資料庫連接成功
+2026-01-14 17:27:26,342 - main - INFO - AI 瑜珈教練系統 API 已啟動
+2026-01-14 17:27:26,354 - database - INFO - 資料庫連接成功：yoga_coach
+2026-01-14 17:27:26,354 - main - INFO - 資料庫連接成功
