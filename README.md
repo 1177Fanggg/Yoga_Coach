@@ -5,12 +5,12 @@
 ## 專案概述
 
 ### 核心功能
-- 🎥 1080p USB 相機即時影像擷取
-- 🧘 MediaPipe 姿勢分析（支援 Warrior II、Tree Pose、Downward Dog）
-- 📊 即時文字 + 分數 + 語音回饋
-- 🎬 自動錄製與合併標註影片
-- 📜 練習歷史記錄與查詢
-- 🔊 離線 TTS 語音回饋 (pyttsx3)
+-  1080p USB 相機即時影像擷取
+-  MediaPipe 姿勢分析（支援 Warrior II、Tree Pose、Downward Dog）
+-  即時文字 + 分數 + 語音回饋
+-  自動錄製與合併標註影片
+-  練習歷史記錄與查詢
+-  離線 TTS 語音回饋 (pyttsx3)
 
 ### 技術棧
 - **後端**: FastAPI + OpenCV + MediaPipe + MongoDB
